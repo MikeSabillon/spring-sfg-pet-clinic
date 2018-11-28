@@ -1,14 +1,16 @@
 package sabillon.springframework5.sfgpetclinic.services.map;
 
+import org.springframework.stereotype.Service;
 import sabillon.springframework5.sfgpetclinic.model.Pet;
-import sabillon.springframework5.sfgpetclinic.services.CrudService;
+import sabillon.springframework5.sfgpetclinic.services.PetService;
 
 import java.util.Set;
 
 /**
  * The type Pet service map.
  */
-public class PetServiceMap extends AbstractMapService<Pet, Long> implements CrudService<Pet, Long> {
+@Service
+public class PetServiceMap extends AbstractMapService<Pet, Long> implements PetService {
     @Override
     public Set<Pet> findAll() {
         return super.findAll();
@@ -26,7 +28,7 @@ public class PetServiceMap extends AbstractMapService<Pet, Long> implements Crud
 
     @Override
     public Pet save(Pet pet) {
-        return super.save(pet.getId(), pet);
+        return super.save(pet);
     }
 
     @Override

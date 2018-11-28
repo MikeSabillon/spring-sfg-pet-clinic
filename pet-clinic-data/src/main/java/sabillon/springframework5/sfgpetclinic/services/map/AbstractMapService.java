@@ -1,9 +1,9 @@
 package sabillon.springframework5.sfgpetclinic.services.map;
 
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
+import sabillon.springframework5.sfgpetclinic.model.BaseEntity;
+
+import java.util.*;
+
 
 /**
  * The type Abstract map service.
@@ -11,12 +11,12 @@ import java.util.Set;
  * @param <T>  the type parameter
  * @param <ID> the type parameter
  */
-public abstract class AbstractMapService<T, ID> {
+public abstract class AbstractMapService<T extends BaseEntity, ID extends Long> {
 
     /**
      * The Map.
      */
-    protected Map<ID, T> map = new HashMap<>();
+    protected Map<Long, T> map = new HashMap<>();
 
     /**
      * Find all set.
@@ -37,15 +37,23 @@ public abstract class AbstractMapService<T, ID> {
         return this.map.get(id);
     }
 
+
     /**
      * Save t.
      *
-     * @param id the id
-     * @param t  the t
+     * @param t the t
      * @return the t
      */
-    T save(ID id, T t) {
-        this.map.put(id, t);
+    T save(T t) {
+        if (t != null) {
+            if (t.getId() == null) {
+                t.setId(this.getNextId());
+            }
+            this.map.put(t.getId(), t);
+        } else {
+            throw new RuntimeException("Object cannot be null");
+        }
+
         return t;
     }
 
@@ -65,6 +73,19 @@ public abstract class AbstractMapService<T, ID> {
      */
     void delete(T t) {
         this.map.entrySet().removeIf(entry -> entry.getValue().equals(t));
+    }
+
+    private Long getNextId() {
+
+        Long nextId = null;
+
+        try {
+            nextId = Collections.max(this.map.keySet()) + 1;
+        } catch (NoSuchElementException e) {
+            nextId = 1l;
+        }
+
+        return nextId;
     }
 
 }

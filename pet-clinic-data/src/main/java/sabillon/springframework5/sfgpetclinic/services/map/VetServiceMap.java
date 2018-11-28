@@ -1,16 +1,16 @@
 package sabillon.springframework5.sfgpetclinic.services.map;
 
+import org.springframework.stereotype.Service;
 import sabillon.springframework5.sfgpetclinic.model.Vet;
-import sabillon.springframework5.sfgpetclinic.services.CrudService;
+import sabillon.springframework5.sfgpetclinic.services.VetService;
 
 import java.util.Set;
 
 /**
  * The type Vet service map.
  */
-public class VetServiceMap extends AbstractMapService<Vet, Long> implements CrudService<Vet, Long> {
-
-
+@Service
+public class VetServiceMap extends AbstractMapService<Vet, Long> implements VetService {
     @Override
     public Set<Vet> findAll() {
         return super.findAll();
@@ -28,7 +28,7 @@ public class VetServiceMap extends AbstractMapService<Vet, Long> implements Crud
 
     @Override
     public Vet save(Vet vet) {
-        return super.save(vet.getId(), vet);
+        return super.save(vet);
     }
 
     @Override

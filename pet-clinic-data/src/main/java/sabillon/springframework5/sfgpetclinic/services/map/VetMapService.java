@@ -6,11 +6,12 @@ import sabillon.springframework5.sfgpetclinic.services.VetService;
 
 import java.util.Set;
 
+
 /**
- * The type Vet service map.
+ * The type Vet map service.
  */
 @Service
-public class VetServiceMap extends AbstractMapService<Vet, Long> implements VetService {
+public class VetMapService extends AbstractMapService<Vet, Long> implements VetService {
     @Override
     public Set<Vet> findAll() {
         return super.findAll();

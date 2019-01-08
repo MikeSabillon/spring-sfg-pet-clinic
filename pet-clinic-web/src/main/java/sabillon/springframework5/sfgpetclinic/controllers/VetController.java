@@ -8,8 +8,8 @@ import sabillon.springframework5.sfgpetclinic.services.VetService;
 /**
  * The type Vet controller.
  */
-@RequestMapping("/vets")
 @Controller
+@RequestMapping("/vets")
 public class VetController {
 
     private final VetService vetService;
@@ -29,7 +29,7 @@ public class VetController {
      * @param model the model
      * @return the string
      */
-    @RequestMapping("/index")
+    @RequestMapping({""})
     public String listVets(Model model) {
         model.addAttribute("vets", this.vetService.findAll());
         return "vets/index";

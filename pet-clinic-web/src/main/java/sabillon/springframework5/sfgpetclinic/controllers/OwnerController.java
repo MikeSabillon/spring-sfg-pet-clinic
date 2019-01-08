@@ -8,8 +8,8 @@ import sabillon.springframework5.sfgpetclinic.services.OwnerService;
 /**
  * The type Owner controller.
  */
-@RequestMapping("/owners")
 @Controller
+@RequestMapping("/owners")
 public class OwnerController {
 
     private final OwnerService ownerService;
@@ -29,7 +29,7 @@ public class OwnerController {
      * @param model the model
      * @return the string
      */
-    @RequestMapping("/index")
+    @RequestMapping({""})
     public String listOwners(Model model) {
         model.addAttribute("owners", this.ownerService.findAll());
         return "owner/index";

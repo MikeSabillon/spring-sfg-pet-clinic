@@ -6,9 +6,7 @@ import sabillon.springframework5.sfgpetclinic.services.OwnerService;
 
 import java.util.Set;
 
-/**
- * The type Owner service map.
- */
+
 @Service
 public class OwnerServiceMap extends AbstractMapService<Owner, Long> implements OwnerService {
     @Override

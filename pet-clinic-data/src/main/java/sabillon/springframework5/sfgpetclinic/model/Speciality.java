@@ -1,12 +1,19 @@
 package sabillon.springframework5.sfgpetclinic.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
 /**
  * The type Speciality.
  *
  * @author Miguel Sabillon in 1/7/2019
  */
+@Entity
+@Table(name = "specialities")
 public class Speciality extends BaseEntity {
 
+    @Column(name = "description")
     private String description;
 
     /**

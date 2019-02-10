@@ -1,5 +1,6 @@
 package sabillon.springframework5.sfgpetclinic.model;
 
+import javax.persistence.*;
 import java.time.LocalDate;
 
 /**
@@ -7,10 +8,17 @@ import java.time.LocalDate;
  *
  * @author Miguel Sabillon in 1/7/2019
  */
+@Entity
+@Table(name = "visits")
 public class Visit {
 
+    @Column(name = "date")
     private LocalDate date;
+    @Column(name = "description")
     private String description;
+
+    @ManyToOne
+    @JoinColumn(name = "pet_id")
     private Pet pet;
 
     /**

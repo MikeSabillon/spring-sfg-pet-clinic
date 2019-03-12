@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import sabillon.springframework5.sfgpetclinic.model.Speciality;
 
 @Repository
-public interface SpecialtyRepository extends CrudRepository<Speciality, Long> {
+public interface SpecialityRepository extends CrudRepository<Speciality, Long> {
 
 }

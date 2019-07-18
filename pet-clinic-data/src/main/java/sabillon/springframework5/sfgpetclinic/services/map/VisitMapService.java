@@ -2,6 +2,7 @@ package sabillon.springframework5.sfgpetclinic.services.map;
 
 import java.util.Set;
 
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
 import sabillon.springframework5.sfgpetclinic.model.Visit;
@@ -10,6 +11,7 @@ import sabillon.springframework5.sfgpetclinic.services.VisitService;
 /**
  * The Class VisitMapService.
  */
+@Profile({ "default", "map" })
 @Service
 public class VisitMapService extends AbstractMapService<Visit, Long> implements VisitService {
 

@@ -1,7 +1,7 @@
 package sabillon.springframework5.sfgpetclinic.controllers;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 
 /**
  * The type Index controller.
@@ -9,13 +9,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class IndexController {
 
-    /**
-     * Index string.
-     *
-     * @return the string
-     */
-    @RequestMapping({"","/","index","index.html"})
-    public String index(){
-        return "index";
-    }
+	/**
+	 * Index string.
+	 *
+	 * @return the string
+	 */
+	@GetMapping({ "", "/", "index", "index.html" })
+	public String index() {
+		return "index";
+	}
 }

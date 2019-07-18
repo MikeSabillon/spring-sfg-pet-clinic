@@ -12,7 +12,7 @@ import sabillon.springframework5.sfgpetclinic.model.BaseEntity;
 /**
  * The type Abstract map service.
  *
- * @param <T>  the type parameter
+ * @param <T> the type parameter
  * @param <I> the type parameter
  */
 public abstract class AbstractMapService<T extends BaseEntity, I extends Long> {
@@ -56,7 +56,6 @@ public abstract class AbstractMapService<T extends BaseEntity, I extends Long> {
 		} else {
 			throw new RuntimeException("Object cannot be null");
 		}
-
 		return t;
 	}
 

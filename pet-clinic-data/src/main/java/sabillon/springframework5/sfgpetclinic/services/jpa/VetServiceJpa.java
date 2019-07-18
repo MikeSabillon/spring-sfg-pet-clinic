@@ -11,16 +11,30 @@ import sabillon.springframework5.sfgpetclinic.model.Vet;
 import sabillon.springframework5.sfgpetclinic.repositories.VetRepository;
 import sabillon.springframework5.sfgpetclinic.services.VetService;
 
+/**
+ * The Class VetServiceJpa.
+ */
 @Profile("springjpa")
 @Service
 public class VetServiceJpa implements VetService {
 
+	/** The vet repository. */
 	private final VetRepository vetRepository;
 
+	/**
+	 * Instantiates a new vet service jpa.
+	 *
+	 * @param vetRepository the vet repository
+	 */
 	public VetServiceJpa(VetRepository vetRepository) {
 		this.vetRepository = vetRepository;
 	}
 
+	/**
+	 * Find all.
+	 *
+	 * @return the sets the
+	 */
 	@Override
 	public Set<Vet> findAll() {
 		Set<Vet> dbVets = new HashSet<>();
@@ -28,22 +42,44 @@ public class VetServiceJpa implements VetService {
 		return dbVets;
 	}
 
+	/**
+	 * Find by id.
+	 *
+	 * @param id the id
+	 * @return the vet
+	 */
 	@Override
 	public Vet findById(Long id) {
 		Optional<Vet> dbVet = this.vetRepository.findById(id);
 		return dbVet.isPresent() ? dbVet.get() : null;
 	}
 
+	/**
+	 * Save.
+	 *
+	 * @param t the t
+	 * @return the vet
+	 */
 	@Override
 	public Vet save(Vet t) {
 		return this.vetRepository.save(t);
 	}
 
+	/**
+	 * Delete.
+	 *
+	 * @param t the t
+	 */
 	@Override
 	public void delete(Vet t) {
 		this.vetRepository.delete(t);
 	}
 
+	/**
+	 * Delete by id.
+	 *
+	 * @param id the id
+	 */
 	@Override
 	public void deleteById(Long id) {
 		this.vetRepository.deleteById(id);

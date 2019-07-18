@@ -11,27 +11,30 @@ import javax.persistence.Table;
 @Table(name = "types")
 public class PetType extends BaseEntity {
 
-    /**
-     * The Name.
-     */
-    @Column(name = "name")
-    public String name;
+	/** The Constant serialVersionUID. */
+	private static final long serialVersionUID = 1L;
 
-    /**
-     * Gets name.
-     *
-     * @return the name
-     */
-    public String getName() {
-        return name;
-    }
+	/**
+	 * The Name.
+	 */
+	@Column(name = "name")
+	public String name;
 
-    /**
-     * Sets name.
-     *
-     * @param name the name
-     */
-    public void setName(String name) {
-        this.name = name;
-    }
+	/**
+	 * Gets name.
+	 *
+	 * @return the name
+	 */
+	public String getName() {
+		return name;
+	}
+
+	/**
+	 * Sets name.
+	 *
+	 * @param name the name
+	 */
+	public void setName(String name) {
+		this.name = name;
+	}
 }

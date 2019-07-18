@@ -13,24 +13,28 @@ import javax.persistence.Table;
 @Table(name = "specialities")
 public class Speciality extends BaseEntity {
 
-    @Column(name = "description")
-    private String description;
+	/** The Constant serialVersionUID. */
+	private static final long serialVersionUID = 1L;
 
-    /**
-     * Gets description.
-     *
-     * @return the description
-     */
-    public String getDescription() {
-        return description;
-    }
+	/** The description. */
+	@Column(name = "description")
+	private String description;
 
-    /**
-     * Sets description.
-     *
-     * @param description the description
-     */
-    public void setDescription(String description) {
-        this.description = description;
-    }
+	/**
+	 * Gets description.
+	 *
+	 * @return the description
+	 */
+	public String getDescription() {
+		return description;
+	}
+
+	/**
+	 * Sets description.
+	 *
+	 * @param description the description
+	 */
+	public void setDescription(String description) {
+		this.description = description;
+	}
 }

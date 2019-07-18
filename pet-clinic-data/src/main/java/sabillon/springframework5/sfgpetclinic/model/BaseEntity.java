@@ -1,10 +1,11 @@
 package sabillon.springframework5.sfgpetclinic.model;
 
+import java.io.Serializable;
+
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
-import java.io.Serializable;
 
 /**
  * The type Base entity.
@@ -12,25 +13,28 @@ import java.io.Serializable;
 @MappedSuperclass
 public class BaseEntity implements Serializable {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+	/** The Constant serialVersionUID. */
+	private static final long serialVersionUID = 1L;
 
-    /**
-     * Gets id.
-     *
-     * @return the id
-     */
-    public Long getId() {
-        return id;
-    }
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
 
-    /**
-     * Sets id.
-     *
-     * @param id the id
-     */
-    public void setId(Long id) {
-        this.id = id;
-    }
+	/**
+	 * Gets id.
+	 *
+	 * @return the id
+	 */
+	public Long getId() {
+		return id;
+	}
+
+	/**
+	 * Sets id.
+	 *
+	 * @param id the id
+	 */
+	public void setId(Long id) {
+		this.id = id;
+	}
 }

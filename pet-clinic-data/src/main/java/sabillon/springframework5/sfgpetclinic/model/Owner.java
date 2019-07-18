@@ -16,13 +16,22 @@ import javax.persistence.Table;
 @Table(name = "owners")
 public class Owner extends Person {
 
+	/** The Constant serialVersionUID. */
+	private static final long serialVersionUID = 1L;
+
+	/** The address. */
 	@Column(name = "address")
 	private String address;
+
+	/** The city. */
 	@Column(name = "city")
 	private String city;
+
+	/** The telephone. */
 	@Column(name = "telephone")
 	private String telephone;
 
+	/** The pets. */
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "owner")
 	private Set<Pet> pets = new HashSet<>();
 
@@ -38,8 +47,7 @@ public class Owner extends Person {
 	/**
 	 * Sets address.
 	 *
-	 * @param address
-	 *            the address
+	 * @param address the address
 	 */
 	public void setAddress(String address) {
 		this.address = address;
@@ -57,8 +65,7 @@ public class Owner extends Person {
 	/**
 	 * Sets city.
 	 *
-	 * @param city
-	 *            the city
+	 * @param city the city
 	 */
 	public void setCity(String city) {
 		this.city = city;
@@ -76,8 +83,7 @@ public class Owner extends Person {
 	/**
 	 * Sets telephone.
 	 *
-	 * @param telephone
-	 *            the telephone
+	 * @param telephone the telephone
 	 */
 	public void setTelephone(String telephone) {
 		this.telephone = telephone;
@@ -95,8 +101,7 @@ public class Owner extends Person {
 	/**
 	 * Sets pets.
 	 *
-	 * @param pets
-	 *            the pets
+	 * @param pets the pets
 	 */
 	public void setPets(Set<Pet> pets) {
 		this.pets = pets;

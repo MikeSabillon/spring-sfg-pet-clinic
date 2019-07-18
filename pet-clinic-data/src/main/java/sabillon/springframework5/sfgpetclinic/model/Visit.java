@@ -17,11 +17,18 @@ import javax.persistence.Table;
 @Table(name = "visits")
 public class Visit extends BaseEntity {
 
+	/** The Constant serialVersionUID. */
+	private static final long serialVersionUID = 1L;
+
+	/** The date. */
 	@Column(name = "date")
 	private LocalDate date;
+
+	/** The description. */
 	@Column(name = "description")
 	private String description;
 
+	/** The pet. */
 	@ManyToOne
 	@JoinColumn(name = "pet_id")
 	private Pet pet;
@@ -38,8 +45,7 @@ public class Visit extends BaseEntity {
 	/**
 	 * Sets date.
 	 *
-	 * @param date
-	 *            the date
+	 * @param date the date
 	 */
 	public void setDate(LocalDate date) {
 		this.date = date;
@@ -57,8 +63,7 @@ public class Visit extends BaseEntity {
 	/**
 	 * Sets description.
 	 *
-	 * @param description
-	 *            the description
+	 * @param description the description
 	 */
 	public void setDescription(String description) {
 		this.description = description;
@@ -76,8 +81,7 @@ public class Visit extends BaseEntity {
 	/**
 	 * Sets pet.
 	 *
-	 * @param pet
-	 *            the pet
+	 * @param pet the pet
 	 */
 	public void setPet(Pet pet) {
 		this.pet = pet;

@@ -13,9 +13,9 @@ import sabillon.springframework5.sfgpetclinic.model.BaseEntity;
  * The type Abstract map service.
  *
  * @param <T>  the type parameter
- * @param <ID> the type parameter
+ * @param <I> the type parameter
  */
-public abstract class AbstractMapService<T extends BaseEntity, ID extends Long> {
+public abstract class AbstractMapService<T extends BaseEntity, I extends Long> {
 
 	/**
 	 * The Map.
@@ -37,7 +37,7 @@ public abstract class AbstractMapService<T extends BaseEntity, ID extends Long> 
 	 * @param id the id
 	 * @return the t
 	 */
-	T findById(ID id) {
+	T findById(I id) {
 		return this.map.get(id);
 	}
 
@@ -65,7 +65,7 @@ public abstract class AbstractMapService<T extends BaseEntity, ID extends Long> 
 	 *
 	 * @param id the id
 	 */
-	void deleteById(ID id) {
+	void deleteById(I id) {
 		this.map.remove(id);
 	}
 

@@ -1,9 +1,16 @@
 package sabillon.springframework5.sfgpetclinic.model;
 
-import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.Set;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 /**
  * The type Pet.
@@ -12,111 +19,119 @@ import java.util.Set;
 @Table(name = "pets")
 public class Pet extends BaseEntity {
 
-    @Column(name = "name")
-    private String name;
+	/** The Constant serialVersionUID. */
+	private static final long serialVersionUID = 1L;
 
-    @ManyToOne
-    @JoinColumn(name = "pet_id")
-    private PetType petType;
+	/** The name. */
+	@Column(name = "name")
+	private String name;
 
-    @ManyToOne
-    @JoinColumn(name = "owner_id")
-    private Owner owner;
+	/** The pet type. */
+	@ManyToOne
+	@JoinColumn(name = "pet_id")
+	private PetType petType;
 
-    @Column(name = "birth_date")
-    private LocalDate birthDate;
+	/** The owner. */
+	@ManyToOne
+	@JoinColumn(name = "owner_id")
+	private Owner owner;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "pet")
-    private Set<Visit> visits = new HashSet<>();
+	/** The birth date. */
+	@Column(name = "birth_date")
+	private LocalDate birthDate;
 
-    /**
-     * Gets name.
-     *
-     * @return the name
-     */
-    public String getName() {
-        return name;
-    }
+	/** The visits. */
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "pet")
+	private Set<Visit> visits = new HashSet<>();
 
-    /**
-     * Sets name.
-     *
-     * @param name the name
-     */
-    public void setName(String name) {
-        this.name = name;
-    }
+	/**
+	 * Gets name.
+	 *
+	 * @return the name
+	 */
+	public String getName() {
+		return name;
+	}
 
-    /**
-     * Gets pet type.
-     *
-     * @return the pet type
-     */
-    public PetType getPetType() {
-        return petType;
-    }
+	/**
+	 * Sets name.
+	 *
+	 * @param name the name
+	 */
+	public void setName(String name) {
+		this.name = name;
+	}
 
-    /**
-     * Sets pet type.
-     *
-     * @param petType the pet type
-     */
-    public void setPetType(PetType petType) {
-        this.petType = petType;
-    }
+	/**
+	 * Gets pet type.
+	 *
+	 * @return the pet type
+	 */
+	public PetType getPetType() {
+		return petType;
+	}
 
-    /**
-     * Gets owner.
-     *
-     * @return the owner
-     */
-    public Owner getOwner() {
-        return owner;
-    }
+	/**
+	 * Sets pet type.
+	 *
+	 * @param petType the pet type
+	 */
+	public void setPetType(PetType petType) {
+		this.petType = petType;
+	}
 
-    /**
-     * Sets owner.
-     *
-     * @param owner the owner
-     */
-    public void setOwner(Owner owner) {
-        this.owner = owner;
-    }
+	/**
+	 * Gets owner.
+	 *
+	 * @return the owner
+	 */
+	public Owner getOwner() {
+		return owner;
+	}
 
-    /**
-     * Gets birth date.
-     *
-     * @return the birth date
-     */
-    public LocalDate getBirthDate() {
-        return birthDate;
-    }
+	/**
+	 * Sets owner.
+	 *
+	 * @param owner the owner
+	 */
+	public void setOwner(Owner owner) {
+		this.owner = owner;
+	}
 
-    /**
-     * Sets birth date.
-     *
-     * @param birthDate the birth date
-     */
-    public void setBirthDate(LocalDate birthDate) {
-        this.birthDate = birthDate;
-    }
+	/**
+	 * Gets birth date.
+	 *
+	 * @return the birth date
+	 */
+	public LocalDate getBirthDate() {
+		return birthDate;
+	}
 
-    /**
-     * Gets visits.
-     *
-     * @return the visits
-     */
-    public Set<Visit> getVisits() {
-        return visits;
-    }
+	/**
+	 * Sets birth date.
+	 *
+	 * @param birthDate the birth date
+	 */
+	public void setBirthDate(LocalDate birthDate) {
+		this.birthDate = birthDate;
+	}
 
-    /**
-     * Sets visits.
-     *
-     * @param visits the visits
-     */
-    public void setVisits(Set<Visit> visits) {
-        this.visits = visits;
-    }
+	/**
+	 * Gets visits.
+	 *
+	 * @return the visits
+	 */
+	public Set<Visit> getVisits() {
+		return visits;
+	}
+
+	/**
+	 * Sets visits.
+	 *
+	 * @param visits the visits
+	 */
+	public void setVisits(Set<Visit> visits) {
+		this.visits = visits;
+	}
 
 }

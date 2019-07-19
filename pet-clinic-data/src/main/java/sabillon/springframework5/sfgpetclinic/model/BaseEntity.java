@@ -7,34 +7,35 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
 
+import lombok.Getter;
+import lombok.Setter;
+
 /**
  * The type Base entity.
  */
+
+/**
+ * Gets the id.
+ *
+ * @return the id
+ */
+@Getter
+
+/**
+ * Sets the id.
+ *
+ * @param id the new id
+ */
+@Setter
 @MappedSuperclass
 public class BaseEntity implements Serializable {
 
 	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 1L;
 
+	/** The id. */
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	/**
-	 * Gets id.
-	 *
-	 * @return the id
-	 */
-	public Long getId() {
-		return id;
-	}
-
-	/**
-	 * Sets id.
-	 *
-	 * @param id the id
-	 */
-	public void setId(Long id) {
-		this.id = id;
-	}
 }

@@ -24,13 +24,34 @@ import sabillon.springframework5.sfgpetclinic.services.VisitService;
 @Component
 public class DataInitializer implements CommandLineRunner {
 
+	/** The owner service. */
 	private final OwnerService ownerService;
+
+	/** The vet service. */
 	private final VetService vetService;
+
+	/** The pet type service. */
 	private final PetTypeService petTypeService;
+
+	/** The pet service. */
 	private final PetService petService;
+
+	/** The speciality service. */
 	private final SpecialityService specialityService;
+
+	/** The visit service. */
 	private final VisitService visitService;
 
+	/**
+	 * Instantiates a new data initializer.
+	 *
+	 * @param ownerService      the owner service
+	 * @param vetService        the vet service
+	 * @param petTypeService    the pet type service
+	 * @param petService        the pet service
+	 * @param specialityService the speciality service
+	 * @param visitService      the visit service
+	 */
 	public DataInitializer(OwnerService ownerService, VetService vetService, PetTypeService petTypeService,
 			PetService petService, SpecialityService specialityService, VisitService visitService) {
 		this.ownerService = ownerService;
@@ -41,11 +62,20 @@ public class DataInitializer implements CommandLineRunner {
 		this.visitService = visitService;
 	}
 
+	/**
+	 * Run.
+	 *
+	 * @param args the args
+	 * @throws Exception the exception
+	 */
 	@Override
 	public void run(String... args) throws Exception {
 		this.initData();
 	}
 
+	/**
+	 * Inits the data.
+	 */
 	private void initData() {
 
 		Speciality sp1 = new Speciality();

@@ -12,9 +12,20 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 /**
  * The type Pet.
  */
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 @Entity
 @Table(name = "pets")
 public class Pet extends BaseEntity {
@@ -41,97 +52,8 @@ public class Pet extends BaseEntity {
 	private LocalDate birthDate;
 
 	/** The visits. */
+	@Builder.Default
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "pet")
 	private Set<Visit> visits = new HashSet<>();
-
-	/**
-	 * Gets name.
-	 *
-	 * @return the name
-	 */
-	public String getName() {
-		return name;
-	}
-
-	/**
-	 * Sets name.
-	 *
-	 * @param name the name
-	 */
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	/**
-	 * Gets pet type.
-	 *
-	 * @return the pet type
-	 */
-	public PetType getPetType() {
-		return petType;
-	}
-
-	/**
-	 * Sets pet type.
-	 *
-	 * @param petType the pet type
-	 */
-	public void setPetType(PetType petType) {
-		this.petType = petType;
-	}
-
-	/**
-	 * Gets owner.
-	 *
-	 * @return the owner
-	 */
-	public Owner getOwner() {
-		return owner;
-	}
-
-	/**
-	 * Sets owner.
-	 *
-	 * @param owner the owner
-	 */
-	public void setOwner(Owner owner) {
-		this.owner = owner;
-	}
-
-	/**
-	 * Gets birth date.
-	 *
-	 * @return the birth date
-	 */
-	public LocalDate getBirthDate() {
-		return birthDate;
-	}
-
-	/**
-	 * Sets birth date.
-	 *
-	 * @param birthDate the birth date
-	 */
-	public void setBirthDate(LocalDate birthDate) {
-		this.birthDate = birthDate;
-	}
-
-	/**
-	 * Gets visits.
-	 *
-	 * @return the visits
-	 */
-	public Set<Visit> getVisits() {
-		return visits;
-	}
-
-	/**
-	 * Sets visits.
-	 *
-	 * @param visits the visits
-	 */
-	public void setVisits(Set<Visit> visits) {
-		this.visits = visits;
-	}
 
 }

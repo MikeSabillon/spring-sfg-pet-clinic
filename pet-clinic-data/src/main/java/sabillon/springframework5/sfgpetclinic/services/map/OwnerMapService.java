@@ -1,5 +1,6 @@
 package sabillon.springframework5.sfgpetclinic.services.map;
 
+import java.util.List;
 import java.util.Set;
 
 import org.springframework.context.annotation.Profile;
@@ -52,7 +53,7 @@ public class OwnerMapService extends AbstractMapService<Owner, Long> implements 
 	 */
 	@Override
 	public void deleteById(Long id) {
-		super.findById(id);
+		super.deleteById(id);
 	}
 
 	/**
@@ -116,6 +117,18 @@ public class OwnerMapService extends AbstractMapService<Owner, Long> implements 
 	public Owner findByLastName(String lastName) {
 		return this.findAll().stream().filter(owner -> owner.getLastName().equalsIgnoreCase(lastName)).findFirst()
 				.orElse(null);
+	}
+
+	/**
+	 * Find all by last name like.
+	 *
+	 * @param lastName the last name
+	 * @return the list
+	 */
+	@Override
+	public List<Owner> findAllByLastNameLike(String lastName) {
+		// todo - impl
+		return null;
 	}
 
 }

@@ -3,7 +3,9 @@ package sabillon.springframework5.sfgpetclinic.model;
 import javax.persistence.Column;
 import javax.persistence.MappedSuperclass;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 /**
@@ -11,6 +13,8 @@ import lombok.Setter;
  */
 @Getter
 @Setter
+@AllArgsConstructor
+@NoArgsConstructor
 @MappedSuperclass
 public class Person extends BaseEntity {
 
@@ -24,5 +28,18 @@ public class Person extends BaseEntity {
 	/** The last name. */
 	@Column(name = "last_name")
 	private String lastName;
+
+	/**
+	 * Instantiates a new person.
+	 *
+	 * @param id        the id
+	 * @param firstName the first name
+	 * @param lastName  the last name
+	 */
+	public Person(Long id, String firstName, String lastName) {
+		super(id);
+		this.firstName = firstName;
+		this.lastName = lastName;
+	}
 
 }

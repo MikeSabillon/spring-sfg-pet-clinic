@@ -7,7 +7,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 /**
@@ -27,6 +29,18 @@ import lombok.Setter;
  * @param id the new id
  */
 @Setter
+
+/**
+ * Instantiates a new base entity.
+ */
+@NoArgsConstructor
+
+/**
+ * Instantiates a new base entity.
+ *
+ * @param id the id
+ */
+@AllArgsConstructor
 @MappedSuperclass
 public class BaseEntity implements Serializable {
 
@@ -37,5 +51,14 @@ public class BaseEntity implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+
+	/**
+	 * Checks if is new.
+	 *
+	 * @return true, if is new
+	 */
+	public boolean isNew() {
+		return this.id == null;
+	}
 
 }

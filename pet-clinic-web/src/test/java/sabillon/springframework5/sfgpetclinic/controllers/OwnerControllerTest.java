@@ -1,5 +1,6 @@
 package sabillon.springframework5.sfgpetclinic.controllers;
 
+import static org.hamcrest.Matchers.hasSize;
 import static org.mockito.Mockito.verifyZeroInteractions;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
@@ -10,7 +11,6 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import java.util.HashSet;
 import java.util.Set;
 
-import org.hamcrest.Matchers;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -66,7 +66,7 @@ class OwnerControllerTest {
 	void testListOwners() throws Exception {
 		when(this.ownerService.findAll()).thenReturn(this.owners);
 		this.mockMvc.perform(get("/owners")).andExpect(status().isOk()).andExpect(view().name("owners/index"))
-				.andExpect(model().attribute("owners", Matchers.hasSize(2)));
+				.andExpect(model().attribute("owners", hasSize(2)));
 	}
 
 	/**

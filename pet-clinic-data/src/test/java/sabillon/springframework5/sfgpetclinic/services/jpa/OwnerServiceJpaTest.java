@@ -21,8 +21,6 @@ import org.mockito.junit.jupiter.MockitoExtension;
 
 import sabillon.springframework5.sfgpetclinic.model.Owner;
 import sabillon.springframework5.sfgpetclinic.repositories.OwnerRepository;
-import sabillon.springframework5.sfgpetclinic.repositories.PetRepository;
-import sabillon.springframework5.sfgpetclinic.repositories.PetTypeRepository;
 
 /**
  * The Class OwnerServiceJpaTest.
@@ -36,14 +34,6 @@ class OwnerServiceJpaTest {
 	/** The owner repository. */
 	@Mock
 	private OwnerRepository ownerRepository;
-
-	/** The pet repository. */
-	@Mock
-	private PetRepository petRepository;
-
-	/** The pet type repository. */
-	@Mock
-	private PetTypeRepository petTypeRepository;
 
 	/** The owner service jpa. */
 	@InjectMocks

@@ -1,30 +1,34 @@
 package sabillon.springframework5.sfgpetclinic.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 /**
  * The type Pet type.
  */
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
+@Entity
+@Table(name = "types")
 public class PetType extends BaseEntity {
 
-    /**
-     * The Name.
-     */
-    public String name;
+	/** The Constant serialVersionUID. */
+	private static final long serialVersionUID = 1L;
 
-    /**
-     * Gets name.
-     *
-     * @return the name
-     */
-    public String getName() {
-        return name;
-    }
+	/**
+	 * The Name.
+	 */
+	@Column(name = "name")
+	public String name;
 
-    /**
-     * Sets name.
-     *
-     * @param name the name
-     */
-    public void setName(String name) {
-        this.name = name;
-    }
 }

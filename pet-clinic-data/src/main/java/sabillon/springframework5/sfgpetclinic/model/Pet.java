@@ -1,67 +1,59 @@
 package sabillon.springframework5.sfgpetclinic.model;
 
 import java.time.LocalDate;
+import java.util.HashSet;
+import java.util.Set;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 /**
  * The type Pet.
  */
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
+@Entity
+@Table(name = "pets")
 public class Pet extends BaseEntity {
 
-    private PetType petType;
-    private Owner owner;
-    private LocalDate birthDate;
+	/** The Constant serialVersionUID. */
+	private static final long serialVersionUID = 1L;
 
-    /**
-     * Gets pet type.
-     *
-     * @return the pet type
-     */
-    public PetType getPetType() {
-        return petType;
-    }
+	/** The name. */
+	@Column(name = "name")
+	private String name;
 
-    /**
-     * Sets pet type.
-     *
-     * @param petType the pet type
-     */
-    public void setPetType(PetType petType) {
-        this.petType = petType;
-    }
+	/** The pet type. */
+	@ManyToOne
+	@JoinColumn(name = "pet_id")
+	private PetType petType;
 
-    /**
-     * Gets owner.
-     *
-     * @return the owner
-     */
-    public Owner getOwner() {
-        return owner;
-    }
+	/** The owner. */
+	@ManyToOne
+	@JoinColumn(name = "owner_id")
+	private Owner owner;
 
-    /**
-     * Sets owner.
-     *
-     * @param owner the owner
-     */
-    public void setOwner(Owner owner) {
-        this.owner = owner;
-    }
+	/** The birth date. */
+	@Column(name = "birth_date")
+	private LocalDate birthDate;
 
-    /**
-     * Gets birth date.
-     *
-     * @return the birth date
-     */
-    public LocalDate getBirthDate() {
-        return birthDate;
-    }
+	/** The visits. */
+	@Builder.Default
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "pet")
+	private Set<Visit> visits = new HashSet<>();
 
-    /**
-     * Sets birth date.
-     *
-     * @param birthDate the birth date
-     */
-    public void setBirthDate(LocalDate birthDate) {
-        this.birthDate = birthDate;
-    }
 }

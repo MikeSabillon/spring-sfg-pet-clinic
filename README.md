@@ -8,7 +8,7 @@ A project I made from the spring boot beginner to guru course in udemy. This pro
 For building and running the application you need:
 - [JDK 11](https://www.oracle.com/technetwork/java/javase/downloads/jdk11-downloads-5066655.html)
 - [Maven 3](https://maven.apache.org)
-- [Project Lombok]([https://projectlombok.org/](https://projectlombok.org/)
+- [Project Lombok](https://projectlombok.org/](https://projectlombok.org/)
 
 ## Running the application locally
 First run the following command on the project container:

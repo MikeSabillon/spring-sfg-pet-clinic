@@ -1,12 +1,17 @@
 language: java
-
-jdk:
-  - oraclejdk11
-  - openjdk11
+sudo: true
 
 cache:
   directories:
     - $HOME/.m2
+
+jdk: oraclejdk11
+addons:
+  apt:
+    packages:
+      - oracle-java11-installer
+before_install:
+  - chmod +x mvnw
 
 after_success:
   - mvn integration-test

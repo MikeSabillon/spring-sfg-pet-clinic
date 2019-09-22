@@ -8,8 +8,5 @@ cache:
   directories:
     - $HOME/.m2
 
-before_install:
-  - chmod +x build.sh
-
 after_success:
   - mvn integration-test

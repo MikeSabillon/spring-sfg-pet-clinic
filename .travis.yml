@@ -8,10 +8,6 @@ cache:
   directories:
     - $HOME/.m2
 
-script: 
-  - mvn install -DskipTests
-  - mvn mvn dependency:go-offline
-
 before_install:
   - chmod +x build.sh
 

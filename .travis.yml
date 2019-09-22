@@ -1,0 +1,15 @@
+language: java
+jdk:
+  - oraclejdk11
+  - openjdk11
+
+cache:
+  directories:
+    - $HOME/.m2
+
+script: 
+  - mvn install -DskipTests
+  - mvn mvn dependency:go-offline
+
+after_success:
+  - mvn integration-test

@@ -1,5 +1,5 @@
 language: java
-sudo: true
+
 jdk:
   - oraclejdk11
   - openjdk11
@@ -11,6 +11,9 @@ cache:
 script: 
   - mvn install -DskipTests
   - mvn mvn dependency:go-offline
+
+before_install:
+  - chmod +x build.sh
 
 after_success:
   - mvn integration-test

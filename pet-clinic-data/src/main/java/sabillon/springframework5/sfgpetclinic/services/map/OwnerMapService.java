@@ -1,5 +1,6 @@
 package sabillon.springframework5.sfgpetclinic.services.map;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
@@ -128,7 +129,7 @@ public class OwnerMapService extends AbstractMapService<Owner, Long> implements 
 	@Override
 	public List<Owner> findAllByLastNameLike(String lastName) {
 		// todo - impl
-		return null;
+		return new ArrayList<>();
 	}
 
 }

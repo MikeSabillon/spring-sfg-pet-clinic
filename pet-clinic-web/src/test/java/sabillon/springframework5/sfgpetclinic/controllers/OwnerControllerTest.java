@@ -50,7 +50,7 @@ class OwnerControllerTest {
 	 */
 	@BeforeEach
 	void setUp() throws Exception {
-		this.owners = new HashSet<Owner>();
+		this.owners = new HashSet<>();
 		this.owners.add(Owner.builder().id(1L).build());
 		this.owners.add(Owner.builder().id(2L).build());
 

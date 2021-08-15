@@ -51,7 +51,7 @@ public class PetTypeServiceJpa implements PetTypeService {
 	@Override
 	public PetType findById(Long id) {
 		Optional<PetType> dbPetType = this.petTypeRepository.findById(id);
-		return dbPetType.isPresent() ? dbPetType.get() : null;
+		return dbPetType.orElse(null);
 	}
 
 	/**

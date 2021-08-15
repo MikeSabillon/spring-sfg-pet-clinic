@@ -51,7 +51,7 @@ public class VetServiceJpa implements VetService {
 	@Override
 	public Vet findById(Long id) {
 		Optional<Vet> dbVet = this.vetRepository.findById(id);
-		return dbVet.isPresent() ? dbVet.get() : null;
+		return dbVet.orElse(null);
 	}
 
 	/**
